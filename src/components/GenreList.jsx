@@ -10,7 +10,7 @@ import {
 import useGenres from "../hooks/useGenres";
 import getCroppedImageUrl from "../services/image-url";
 
-const GenreList = ({ onSelectGenre }) => {
+const GenreList = ({selectedGenre, onSelectGenre }) => {
   const { data, isLoading, error } = useGenres();
 
   if (isLoading) return <Spinner />;
@@ -26,6 +26,7 @@ const GenreList = ({ onSelectGenre }) => {
               src={getCroppedImageUrl(genre.image_background)}
             />
             <Button
+              fontWeight={genre.id===selectedGenre?.id ?'bold':'normal'}
               onClick={() => onSelectGenre(genre)}
               fontSize={"lg"}
               variant="link"
