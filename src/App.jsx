@@ -1,4 +1,11 @@
-import { Button, ButtonGroup,HStack, Grid, GridItem, Show } from "@chakra-ui/react";
+import {
+  Button,
+  ButtonGroup,
+  HStack,
+  Grid,
+  GridItem,
+  Show,
+} from "@chakra-ui/react";
 import NavBar from "./components/NavBar";
 import GameGrid from "./components/GameGrid";
 import GenreList from "./components/GenreList";
@@ -38,11 +45,14 @@ function App() {
               setGameQuery({ ...gameQuery, platform })
             }
           />
-          <SortSelector/>
+          <SortSelector
+            sortOrder={gameQuery.sortOrder}
+            onSelectSortOrder={(sortOrder) =>
+              setGameQuery({ ...gameQuery, sortOrder })
+            }
+          />
         </HStack>
-        <GameGrid
-          gameQuery={gameQuery}
-        />
+        <GameGrid gameQuery={gameQuery} />
       </GridItem>
     </Grid>
   );
