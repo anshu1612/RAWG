@@ -1,4 +1,4 @@
-import useData from "./useData";
-const usePlatforms =()=> useData("/platforms/lists/parents")
+import platforms from "../data/platforms";
+const usePlatforms =()=> ({data:platforms,error:null})
 
 export default usePlatforms;
